@@ -118,13 +118,21 @@ if( !class_exists( 'ElapsedDays' ) ){
 		}
 		
 		function getDateInfo( $time=NULL ) {
-			if(! $time ) $time = time();
-			return array(
-				"y" => (int)date("Y", $time),
-				"m" => (int)date("n", $time),
-				"d" => (int)date("j", $time),
-				"t" => (int)date("t", $time),
-			);
+			if(! $time ) {
+				return array(
+					"y" => (int)date_i18n("Y"),
+					"m" => (int)date_i18n("n"),
+					"d" => (int)date_i18n("j"),
+					"t" => (int)date_i18n("t"),
+				);
+			} else {
+				return array(
+					"y" => (int)date("Y", $time),
+					"m" => (int)date("n", $time),
+					"d" => (int)date("j", $time),
+					"t" => (int)date("t", $time),
+				);
+			}
 		}
 	}
 
