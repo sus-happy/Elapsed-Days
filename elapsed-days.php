@@ -44,7 +44,8 @@ if( !class_exists( 'ElapsedDays' ) ){
 				"t" => get_option('ElapsedDaysViewFormat'),
 				"y" => get_option('ElapsedDaysViewFormatYear'),
 				"m" => get_option('ElapsedDaysViewFormatMonth'),
-				"d" => get_option('ElapsedDaysViewFormatDay')
+				"d" => get_option('ElapsedDaysViewFormatDay'),
+				"n" => get_option('ElapsedDaysViewFormatNone')
 			);
 			if(
 				empty( $this->VIEW_BORDER ) &&
@@ -85,6 +86,8 @@ if( !class_exists( 'ElapsedDays' ) ){
 			if( $nDate["m"] == $pDate["m"] ) {
 				if( $nDate["y"] > $pDate["y"] && $nDate["d"] <= $pDate["d"] )
 					$month = 12;
+				else if( $nDate["d"] <= $pDate["d"] )
+					$month = 1;
 			} else
 				$month = $nDate["m"] + ( 12-$pDate["m"] );
 			if( $nDate["d"] <= $pDate["d"] )
@@ -96,6 +99,9 @@ if( !class_exists( 'ElapsedDays' ) ){
 				$diff["d"] = $nDate["d"] - $pDate["d"];
 			else
 				$diff["d"] = $nDate["d"] + ( $pDate["t"] - $pDate["d"] );
+			
+			if( !$diff["y"] && !$diff["m"] && !$diff["d"] )
+				return $this->VIEW_FORMAT["n"];
 
 			$result = array();
 

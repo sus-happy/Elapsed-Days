@@ -24,10 +24,14 @@
 					<th style="width:4em;"><label for="ElapsedDaysViewFormatDay">日(%d)</label></th>
 					<td><input name="ElapsedDaysViewFormatDay" type="text" id="ElapsedDaysViewFormatDay" value="<?php echo get_option('ElapsedDaysViewFormatDay'); ?>" class="regular-text"></td>
 				</tr>
+				<tr valign="top">
+					<th style="width:4em;"><label for="ElapsedDaysViewFormatNone">当日</label></th>
+					<td colspan="2"><input name="ElapsedDaysViewFormatNone" type="text" id="ElapsedDaysViewFormatNone" value="<?php echo get_option('ElapsedDaysViewFormatNone'); ?>" class="regular-text"></td>
+				</tr>
 			</tbody>
 		</table>
 		<input type="hidden" name="action" value="update" />
-		<input type="hidden" name="page_options" value="ElapsedDaysBorderLine,ElapsedDaysViewFormat,ElapsedDaysViewFormatYear,ElapsedDaysViewFormatMonth,ElapsedDaysViewFormatDay" />
+		<input type="hidden" name="page_options" value="ElapsedDaysBorderLine,ElapsedDaysViewFormat,ElapsedDaysViewFormatYear,ElapsedDaysViewFormatMonth,ElapsedDaysViewFormatDay,ElapsedDaysViewFormatNone" />
 		<p class="submit"><input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" /></p>
 	</form>
 </div>
